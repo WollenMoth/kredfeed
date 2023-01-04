@@ -1,8 +1,8 @@
 export interface Domicilio {
   calle: string;
-  numExt: number;
-  numInt: number;
-  codPost: number;
+  numExt: number | '';
+  numInt: number | '';
+  codPost: number | '';
   colonia: string;
   municipio: string;
   ciudad: string;
@@ -13,19 +13,19 @@ export interface Domicilio {
 export interface Empresa {
   correo: string;
   nombre: string;
-  fechaConst: Date;
+  fechaConst: Date | '';
   domicilio: Domicilio;
-  compDomicilio: File | null;
+  compDomicilio: File | '';
 }
 
 export interface Representante {
   correo: string;
   nombre: string;
   nacionalidad: string;
-  fechaNac: Date;
+  fechaNac: Date | '';
   tel: string;
   domicilio: Domicilio;
-  identificacion: File | null;
+  identificacion: File | '';
 }
 
 export default interface User {

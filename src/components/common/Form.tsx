@@ -21,7 +21,7 @@ export default abstract class Form<T extends object> extends React.Component {
     if (!error) return {};
 
     const errors: Errors = {};
-    for (let item of error.details) errors[item.path[0]] = item.message;
+    for (let item of error.details) errors[item.path.join('.')] = item.message;
 
     return errors;
   };

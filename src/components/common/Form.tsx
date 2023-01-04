@@ -83,6 +83,7 @@ export default abstract class Form<T extends object> extends React.Component {
       error={this.state.errors[id]}
       type={type}
       onChange={this.handleChange}
+      key={id}
     />
   );
 

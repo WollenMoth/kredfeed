@@ -48,13 +48,17 @@ export default abstract class Form<T extends object> extends React.Component {
     currentTarget: input,
   }: React.ChangeEvent<HTMLInputElement>) => {
     const { data, errors } = { ...this.state };
-    const { value, valueAsNumber, id } = input;
+    const { value, valueAsNumber, valueAsDate, id } = input;
 
     const errorMessage = this.validateProperty(input);
     if (errorMessage) errors[id] = errorMessage;
     else delete errors[id];
 
-    _.set(data, id, isNaN(valueAsNumber) ? value : valueAsNumber);
+    _.set(
+      data,
+      id,
+      valueAsDate ?? isNaN(valueAsNumber) ? value : valueAsNumber
+    );
 
     this.setState({ data, errors });
   };

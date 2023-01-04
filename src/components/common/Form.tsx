@@ -39,7 +39,7 @@ export default abstract class Form<T extends object> extends React.Component {
 
     const errors = this.validate();
     this.setState({ errors });
-    if (errors) return;
+    if (Object.keys(errors).length > 0) return;
 
     this.doSubmit();
   };

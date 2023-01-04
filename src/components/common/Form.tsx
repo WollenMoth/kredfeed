@@ -39,7 +39,7 @@ export default abstract class Form<T extends object> extends React.Component {
 
     const errors = this.validate();
     this.setState({ errors });
-    if (Object.keys(errors).length > 0) return;
+    if (!_.isEmpty(errors)) return;
 
     this.doSubmit();
   };
@@ -64,7 +64,7 @@ export default abstract class Form<T extends object> extends React.Component {
   renderButton = (label: string) => (
     <Button
       variant="primary"
-      disabled={Object.keys(this.state.errors).length > 0}
+      disabled={!_.isEmpty(this.state.errors)}
       type="submit"
     >
       {label}

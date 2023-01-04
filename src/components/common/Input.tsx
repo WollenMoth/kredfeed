@@ -11,9 +11,9 @@ interface InputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Input({ id: name, label, error, ...rest }: InputProps) {
+function Input({ id, label, error, ...rest }: InputProps) {
   return (
-    <Form.Group className="mb-3" controlId={name}>
+    <Form.Group className="mb-3" controlId={id}>
       <Form.Label>{label}</Form.Label>
       <Form.Control {...rest} />
       {error && (
